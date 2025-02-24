@@ -5,7 +5,6 @@ body {
 
 }
 
-
 /* Ajustar la tipografía del header */
 .custom-nav-item {
   font-size: 13px;
@@ -74,8 +73,25 @@ body {
 }
 
 html {
-  scroll-padding-top: 100px; /* Ajusta según la altura del header */
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Ajusta según la altura del header */
 }
+
+/* Corregir el desplazamiento incorrecto al hacer clic en anclajes */
+section[id] {
+  scroll-margin-top: 80px; /* Compensa la altura del header */
+}
+
+
+/* Ajustar la posición de los anclajes para compensar el header */
+section[id]::before {
+  content: "";
+  display: block;
+  height: 80px; /* Ajusta este valor según la altura del header */
+  margin-top: -80px; /* Mueve la sección hacia arriba sin afectar la estructura */
+  visibility: hidden;
+}
+
 
 /* Clase para cuando el header debe fijarse en móviles */
 .fixed-header {
@@ -275,7 +291,7 @@ body.fixed-body {
 }
 
 /* Development Section */
-#PHDevelopments {
+#developments {
   padding-top: 80px;
   padding-bottom: 60px;
   padding-left: 5%; /* Más margen lateral */
@@ -656,22 +672,31 @@ input:focus, textarea:focus {
 
   /* Ajustar el body solo en desktop para evitar el solapamiento */
   body {
-      padding-top: 80px; /* Ajusta según la altura del header en desktop */
-  }
+    padding-top: 80px; /* Ajusta según la altura del header en desktop */
+    scroll-padding-top: 80px; /* Corrige el desplazamiento al hacer clic en los enlaces */
+}
 }
 
 /* Responsive - 2 per row on tablets */
 @media (max-width: 992px) {
 
   .sticky-header {
-    position: relative;
-}
-body {
-    padding-top: 0 !important; /* Evita que haya espacio extra */
+    position: relative; /* Evita que se fije en móviles */
 }
 
+/* Corrige el desplazamiento al hacer clic en los enlaces */
+html {
+    scroll-padding-top: 50px; /* Ajuste fino para móviles */
+}
+
+/* Asegurar que el body no tenga padding extra en móviles */
+body {
+    padding-top: 0 !important;
+}
+
+/* La dirección mobile desaparece al hacer scroll */
 .mobile-address {
-    position: relative;
+    transition: opacity 0.3s ease-in-out;
 }
 
   .we-are-title {
@@ -683,7 +708,7 @@ body {
   .we-are-line {
     display: none; /* Ocultamos la línea en tablets y móviles */
   }
-  #PHDevelopments {
+  #developments {
     padding-left: 3%;
     padding-right: 3%;
   }
