@@ -359,7 +359,7 @@ body {
 
 /* Imagen en Desktop Completa, en Mobile Recortada */
 .solutions-image {
-  background-image: url("img/grupo-signum-our-solutions.webp");
+  /* background-image: url("/img/grupo-signum-our-solutions.webp"); */
   background-size: cover;
   background-position: center;
   min-height: 500px;
