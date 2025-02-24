@@ -72,25 +72,25 @@ body {
   color: rgb(85, 85, 85);
 }
 
+/* Solución: Ajustar correctamente el desplazamiento de los anclajes */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Ajusta según la altura del header */
+  scroll-padding-top: 100px; /* Ajuste fino */
 }
 
-/* Corregir el desplazamiento incorrecto al hacer clic en anclajes */
 section[id] {
-  scroll-margin-top: 80px; /* Compensa la altura del header */
+  scroll-margin-top: 100px; /* Espacio compensatorio para el sticky header */
 }
 
-
-/* Ajustar la posición de los anclajes para compensar el header */
+/* Evitar desplazamiento extra en los anclajes */
 section[id]::before {
   content: "";
   display: block;
-  height: 80px; /* Ajusta este valor según la altura del header */
-  margin-top: -80px; /* Mueve la sección hacia arriba sin afectar la estructura */
+  height: 0px; /* Eliminamos el ajuste extra que estaba causando el desplazamiento adicional */
+  margin-top: 0px;
   visibility: hidden;
 }
+
 
 
 /* Clase para cuando el header debe fijarse en móviles */

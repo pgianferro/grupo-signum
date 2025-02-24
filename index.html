@@ -557,6 +557,8 @@
         });
     </script>
 
+    <!-- Ajuste de desplazamiento en tablets y móviles -->
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const headerHeight = document.querySelector(".sticky-header").offsetHeight;
@@ -568,15 +570,15 @@
                         event.preventDefault();
                         const targetElement = document.querySelector(targetId);
                         if (targetElement) {
-                            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+                            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - (headerHeight - 10);
                             window.scrollTo({ top: targetPosition, behavior: "smooth" });
                         }
                     }
                 });
             });
         });
-
     </script>
+
 
 </body>
 
