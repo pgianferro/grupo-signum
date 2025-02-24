@@ -78,9 +78,11 @@ html {
   scroll-padding-top: 100px; /* Ajuste fino */
 }
 
+/* Corrige el desplazamiento de los anclajes */
 section[id] {
-  scroll-margin-top: 100px; /* Espacio compensatorio para el sticky header */
+  scroll-margin-top: 80px; /* Ajuste para compensar el header */
 }
+
 
 /* Evitar desplazamiento extra en los anclajes */
 section[id]::before {
