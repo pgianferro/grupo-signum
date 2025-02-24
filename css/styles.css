@@ -1,6 +1,8 @@
 /* Asegurar que toda la página use Roboto */
 body {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
+  padding-top: 100px; /* Ajusta este valor según la altura total del header */
+
 }
 
 
@@ -46,23 +48,22 @@ body {
   padding: 8px 0;
 }
 
-/* Sticky header */
+/* Sticky header en todas las resoluciones */
 .sticky-header {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
   width: 100%;
   z-index: 1050;
   transition: all 0.3s ease-in-out;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Dirección en móviles */
+/* Dirección en móviles (queda fija arriba y fuera del sticky header) */
 .mobile-address {
   background-color: #f8f9fa;
   padding: 5px 0;
   text-align: center;
   font-size: 10px;
+  transition: opacity 0.3s ease-in-out;
 }
 
 /* Dirección en desktop */
@@ -76,6 +77,21 @@ html {
   scroll-padding-top: 100px; /* Ajusta según la altura del header */
 }
 
+/* Clase para cuando el header debe fijarse en móviles */
+.fixed-header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1050;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustar el body para evitar solapamiento con el header fijo */
+body.fixed-body {
+  padding-top: 70px; /* Ajustar según la altura del header */
+}
 
 
 /* Hero Section */
@@ -626,12 +642,32 @@ input:focus, textarea:focus {
     }
 }
 
+/* Asegurar que el header sea sticky en desktop */
+@media (min-width: 993px) { 
+  .sticky-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      z-index: 1050;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
 
+  /* Ajustar el body solo en desktop para evitar el solapamiento */
+  body {
+      padding-top: 80px; /* Ajusta según la altura del header en desktop */
+  }
+}
 
 /* Responsive - 2 per row on tablets */
 @media (max-width: 992px) {
+
   .sticky-header {
-    position: relative; /* Hace que no se pierda el address */
+    position: relative;
+}
+body {
+    padding-top: 0 !important; /* Evita que haya espacio extra */
 }
 
 .mobile-address {
