@@ -211,7 +211,7 @@ body.fixed-body {
 .about-divider {
   width: 30px;
   height: 2px;
-  background-color: #007bff;
+  background-color: #78a7b8;
   margin-bottom: 10px;
 }
 
@@ -242,7 +242,7 @@ body.fixed-body {
 .we-are-divider {
   width: 30px;
   height: 2px;
-  background-color: #007bff;
+  background-color: #78a7b8;
   margin-bottom: 10px;
 }
 
@@ -270,7 +270,7 @@ body.fixed-body {
 .we-are-icon {
   width: 28px;
   height: 28px;
-  background-color: #007bff;
+  background-color: #78a7b8;
   border: 6px solid #ddd; /* Borde gris más grueso */
   border-radius: 50%;
   display: inline-block;
@@ -313,7 +313,7 @@ body.fixed-body {
 .development-divider {
   width: 30px;
   height: 2px;
-  background-color: #007bff;
+  background-color: #78a7b8;
   margin-bottom: 10px;
 }
 
@@ -378,7 +378,7 @@ body.fixed-body {
 }
 
 .development-heading a:hover {
-  color: #007bff;
+  color: #78a7b8;
 }
 
 /* Description text */
@@ -392,7 +392,7 @@ body.fixed-body {
 /* Espaciado del botón CTA */
 .development-link {
   font-size: 14px;
-  color: #007bff;
+  color: #78a7b8;
   text-decoration: none;
   font-weight: 600;
   display: inline-block;
@@ -420,7 +420,9 @@ body.fixed-body {
   width: 40%;
 }
 
-
+.upper-solution {
+  color: #78a7b8
+}
 
 /* Contenido de la Sección */
 .solutions-content {
@@ -440,7 +442,7 @@ body.fixed-body {
 .solutions-divider {
   width: 70px;
   height: 2px;
-  background-color: #007bff;
+  background-color: #78a7b8;
   margin-bottom: 10px;
 }
 
@@ -454,7 +456,7 @@ body.fixed-body {
 /* Solution Card */
 .solution-card {
   background-color: #000;
-  border-left: 3px solid #007bff;
+  border-left: 3px solid #78a7b8;
   padding: 20px 20px 10px 20px;
   transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
   height: 100%;
@@ -563,7 +565,7 @@ input:focus, textarea:focus {
 
 /* Button */
 .contact-btn {
-    background-color: #007bff;
+    background-color: #78a7b8;
     color: white;
     padding: 12px 25px;
     font-size: 16px;
@@ -642,7 +644,7 @@ input:focus, textarea:focus {
 
 /* Efecto hover: Fondo azul y flecha blanca */
 .scroll-top:hover {
-    background-color: #007bff;
+    background-color: #78a7b8;
     color: white;
 }
 
