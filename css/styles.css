@@ -3,6 +3,7 @@ body {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
+
 /* Ajustar la tipografía del header */
 .custom-nav-item {
   font-size: 13px;
@@ -10,6 +11,10 @@ body {
   color: rgb(85, 85, 85);
   line-height: 21px;
   padding: 5px 10px; /* Reduce padding para que los elementos no ocupen tanto */
+}
+
+.navbar {
+  min-height: 60px; /* Reduce la altura del navbar */
 }
 
 /* Ajustar el navbar para evitar salto de línea */
@@ -41,21 +46,36 @@ body {
   padding: 8px 0;
 }
 
-/* Estilos para hacer el header sticky */
+/* Sticky header */
 .sticky-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1050; /* Asegura que quede por encima del resto */
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1050;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Ajustar el body para evitar que el contenido se solape con el header */
-body {
-    padding-top: 80px; /* Ajusta este valor según la altura del header */
+/* Dirección en móviles */
+.mobile-address {
+  background-color: #f8f9fa;
+  padding: 5px 0;
+  text-align: center;
+  font-size: 10px;
 }
+
+/* Dirección en desktop */
+.desktop-address {
+  font-size: 12px;
+  text-align: left;
+  color: rgb(85, 85, 85);
+}
+
+html {
+  scroll-padding-top: 100px; /* Ajusta según la altura del header */
+}
+
 
 
 /* Hero Section */
@@ -481,12 +501,13 @@ body {
 .contact-textarea {
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.4);
-    color: white;
+    color: white !important;
     padding: 12px;
     border-radius: 5px;
     width: 100%;
     font-size: 16px;
     transition: border-color 0.3s ease-in-out;
+    caret-color: white;
 }
 
 .contact-input:focus,
@@ -498,7 +519,12 @@ body {
 
 .contact-input::placeholder,
 .contact-textarea::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.7)!important;
+}
+
+input:focus, textarea:focus {
+  border-color: white !important; /* Hace que el borde sea más visible */
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5) !important; /* Sutil brillo en el borde */
 }
 
 /* Button */
@@ -604,6 +630,14 @@ body {
 
 /* Responsive - 2 per row on tablets */
 @media (max-width: 992px) {
+  .sticky-header {
+    position: relative; /* Hace que no se pierda el address */
+}
+
+.mobile-address {
+    position: relative;
+}
+
   .we-are-title {
     font-size: 24px;
   }

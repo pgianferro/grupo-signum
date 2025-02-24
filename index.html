@@ -31,24 +31,25 @@
 </head>
 
 <body>
-    <!-- Address Section for Mobile -->
-    <div class="d-block d-lg-none bg-light text-center py-2">
-        <p class="mb-0 text-muted extra-small text-uppercase">
-            <strong>SIGNUM SERVICES LLC</strong><br>
-            30 N Gould St Ste R, Sheridan, WY 82801, WYOMING<br>
-            Tax ID: 86-2213242
-        </p>
-    </div>
-    <header class="sticky-header bg-white py-3">
+    <header class="sticky-header bg-white">
+        <!-- Address Section for Mobile (se verá SOLO en móviles) -->
+        <div class="d-block d-lg-none bg-light text-center py-2 mobile-address">
+            <p class="mb-0 text-muted extra-small text-uppercase">
+                <strong>SIGNUM SERVICES LLC</strong><br>
+                30 N Gould St Ste R, Sheridan, WY 82801, WYOMING<br>
+                Tax ID: 86-2213242
+            </p>
+        </div>
+
         <nav class="navbar navbar-expand-lg navbar-light container">
             <div class="d-flex align-items-center">
-                <!-- Logo (50% más grande) -->
+                <!-- Logo -->
                 <a class="navbar-brand d-flex align-items-center me-4" href="https://www.grupo-signum.com.ar/">
                     <img src="img/grupo-signum-logo.png" alt="Grupo Signum Logo" height="75">
                 </a>
 
-                <!-- Address (Only visible on larger screens) -->
-                <div class="d-none d-lg-block ms-4">
+                <!-- Address (Solo en desktop) -->
+                <div class="d-none d-lg-block ms-4 desktop-address">
                     <p class="mb-0 text-muted company-info text-uppercase">
                         <strong>SIGNUM SERVICES LLC</strong><br>
                         30 N Gould St Ste R, Sheridan, WY 82801, WYOMING<br>
@@ -57,28 +58,19 @@
                 </div>
             </div>
 
-            <!-- Address on mobile (Visible only on small screens) -->
-            <div class="d-none d-lg-none d-md-block text-start mt-2 w-50">
-                <p class="mb-0 text-muted extra-small text-uppercase">
-                    <strong>SIGNUM SERVICES LLC</strong><br>
-                    30 N Gould St Ste R, Sheridan, WY 82801, WYOMING<br>
-                    Tax ID: 86-2213242
-                </p>
-            </div>
-
-            <!-- Toggle Button for Mobile -->
+            <!-- Botón de menú para móviles -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Navigation Menu -->
+            <!-- Menú de navegación -->
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav text-uppercase fw-semibold">
                     <li class="nav-item"><a class="nav-link custom-nav-item" href="#about">About Us</a></li>
                     <li class="nav-item"><a class="nav-link custom-nav-item" href="#developments">Our Brands &
                             Developments</a></li>
                     <li class="nav-item"><a class="nav-link custom-nav-item" href="#solutions">Solutions</a></li>
-                    <li class="nav-item"><a class="nav-link custom-nav-item" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link custom-nav-item" href="#contact">Contact Us</a></li>
                 </ul>
             </div>
         </nav>
@@ -264,8 +256,9 @@
     <!-- Info Blocks -->
     <div class="row no-gutters solutions-section" id="solutions">
         <!-- Info Image -->
-        <div class="col-lg-5 solutions-image" style="background-image: url('img/grupo-signum-our-solutions.webp');"></div>
-        
+        <div class="col-lg-5 solutions-image" style="background-image: url('img/grupo-signum-our-solutions.webp');">
+        </div>
+
         <!-- End Info Image -->
 
         <div class="col-lg-7 solutions-content">
@@ -352,8 +345,9 @@
                     <input type="hidden" name="redirect" value="http://127.0.0.1:5500/index.html?success=true">
                     <div class="row">
                         <div class="col-md-12 form-group mb-3">
-                            <input type="text" name="name" class="form-control contact-input" placeholder="Full Name"
-                                required>
+                            <input type="text" name="name"
+                                class="form-control contact-input text-white bg-transparent border-white"
+                                placeholder="Full Name" required>
                         </div>
 
                         <div class="col-md-6 form-group mb-3">
@@ -417,8 +411,8 @@
                     <p class="mb-0">Address: 30 N Gould St Ste R, Sheridan, WY 82801, WYOMING</p>
                     <p class="mb-0">Tax ID: 86-2213242</p>
                     <p class="mt-5">Developed by
-                        <a href="https://www.conclave.ar" class="text-decoration-none"
-                            style="color: #af2606;" target="_blank">Conclave.ar</a>
+                        <a href="https://www.conclave.ar" class="text-decoration-none" style="color: #af2606;"
+                            target="_blank">Conclave.ar</a>
                     </p>
                 </div>
 
@@ -474,7 +468,7 @@
         });
     </script>
     <script>
-            // Notificación de mensaje enviado con éxito
+        // Notificación de mensaje enviado con éxito
         document.addEventListener("DOMContentLoaded", function () {
             const urlParams = new URLSearchParams(window.location.search);
             const notification = document.getElementById("notification");
@@ -488,33 +482,53 @@
         });
     </script>
 
-<!-- Botón flotante para ir arriba -->
-<button id="scrollTopBtn" class="scroll-top">
-    <i class="bi bi-chevron-up"></i>
-</button>
+    <!-- Botón flotante para ir arriba -->
+    <button id="scrollTopBtn" class="scroll-top">
+        <i class="bi bi-chevron-up"></i>
+    </button>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var scrollTopBtn = document.getElementById("scrollTopBtn");
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var scrollTopBtn = document.getElementById("scrollTopBtn");
 
-        // Mostrar el botón al hacer scroll
-        window.addEventListener("scroll", function () {
-            if (window.scrollY > 200) {
-                scrollTopBtn.classList.add("show");
-            } else {
-                scrollTopBtn.classList.remove("show");
-            }
-        });
+            // Mostrar el botón al hacer scroll
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 200) {
+                    scrollTopBtn.classList.add("show");
+                } else {
+                    scrollTopBtn.classList.remove("show");
+                }
+            });
 
-        // Hacer scroll al inicio al hacer clic en el botón
-        scrollTopBtn.addEventListener("click", function () {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
+            // Hacer scroll al inicio al hacer clic en el botón
+            scrollTopBtn.addEventListener("click", function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
             });
         });
-    });
-</script>
+    </script>
+
+    <!-- Cierre del menú hamburguesa al hacer clic en Menú en móviles -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+            var navbarCollapse = document.querySelector(".navbar-collapse");
+
+            navLinks.forEach(function (link) {
+                link.addEventListener("click", function () {
+                    if (window.innerWidth < 992) { // Solo aplica en móviles
+                        var bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                            toggle: false,
+                        });
+                        bsCollapse.hide();
+                    }
+                });
+            });
+        });
+    </script>
 
 
 </body>
