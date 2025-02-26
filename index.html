@@ -285,8 +285,8 @@
                 <!-- Contact Form -->
                 <form id="PHContact" action="https://api.web3forms.com/submit" method="POST">
                     <input type="hidden" name="access_key" value="177a0564-6f7c-4013-b74c-bbf9c52f5dd6">
-                    <input type="hidden" name="subject" value="Nuevo mensaje desde Grupo Signum">
-                    <input type="hidden" name="redirect" value="https://signum-services.com/index.html?success=true">
+                    <input type="hidden" name="subject" value="Nuevo mensaje desde Signum Services">
+                    <input type="hidden" name="redirect" value="https://www.signum-services.com/#contact?success=true">
                     <div class="row">
                         <div class="col-md-12 form-group mb-3">
                             <input type="text" name="name"
@@ -412,8 +412,10 @@
             });
         });
     </script>
+
+
+<!-- Notificación de mensaje enviado con éxito -->
     <script>
-        // Notificación de mensaje enviado con éxito
         document.addEventListener("DOMContentLoaded", function () {
             const urlParams = new URLSearchParams(window.location.search);
             const notification = document.getElementById("notification");
@@ -422,7 +424,7 @@
                 notification.classList.remove("d-none");
                 setTimeout(function () {
                     notification.classList.add("d-none");
-                }, 5000); // Oculta la notificación después de 5 segundos
+                }, 10000); // Oculta la notificación después de 5 segundos
             }
         });
     </script>
