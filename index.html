@@ -8,7 +8,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <!-- Title -->
-    <title>Grupo Signum | Transformando el negocio digital</title>
+    <title>Signum Services | Complete Laboratory Solutions</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="img/grupo-signum-favicon-new.png" type="image/x-icon">
@@ -82,7 +82,8 @@
 
     <!-- Hero Section -->
     <section id="hero" class="position-relative mt-lg-4">
-        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="8000">
+        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000"
+            data-bs-pause="false">
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></li>
@@ -286,7 +287,7 @@
                 <form id="PHContact" action="https://api.web3forms.com/submit" method="POST">
                     <input type="hidden" name="access_key" value="177a0564-6f7c-4013-b74c-bbf9c52f5dd6">
                     <input type="hidden" name="subject" value="Nuevo mensaje desde Signum Services">
-                    <input type="hidden" name="redirect" value="https://www.signum-services.com/#contact?success=true">
+                    <input type="hidden" name="redirect" value="https://www.signum-services.com/?success=true#contact">
                     <div class="row">
                         <div class="col-md-12 form-group mb-3">
                             <input type="text" name="name"
@@ -332,7 +333,7 @@
                     <div class="col-sm-6 col-md-4 mb-3">
                         <i class="bi bi-telephone contact-icon fs-1"></i>
                         <h4 class="contact-info-title mt-3">Phone</h4>
-                        <a href="tel:+54 11 5574-1058" class="contact-info-data">+54 11 5574-1058</a>
+                        <a href="tel:+1 (754)-248-7907" class="contact-info-data">+1 (754)-248-7907</a>
                         <!-- <span class="contact-info-data">+54 11 5574-1058</span> -->
                     </div>
 
@@ -391,30 +392,40 @@
     <!-- Script para la barra de progreso -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            var progressBar = document.querySelector(".carousel-progress-bar .progress");
             var carousel = document.querySelector("#heroCarousel");
-            var progressBar = document.querySelector(".progress");
-
-            function resetProgressBar() {
-                progressBar.style.transition = "none"; // Deshabilita la animación momentáneamente
-                progressBar.style.width = "0%"; // Resetea la barra
+            var intervalTime = 5000; // Duración del slide (coincide con data-bs-interval)
+    
+            function startProgress() {
+                progressBar.style.transition = "none";  // Evita animaciones previas
+                progressBar.style.width = "0%";
+                progressBar.style.opacity = "1";  // Asegurar visibilidad
+                
                 setTimeout(() => {
-                    progressBar.style.transition = "width 5s linear"; // Vuelve a activar la animación
+                    progressBar.style.transition = `width ${intervalTime / 1000}s linear`;
                     progressBar.style.width = "100%";
-                }, 100);
+                }, 50);
             }
-
-            // Activar la barra de progreso cuando inicia la página
-            resetProgressBar();
-
-            // Detectar cada vez que un slide comienza su transición
-            carousel.addEventListener("slide.bs.carousel", function () {
-                resetProgressBar();
+    
+            // Forzar visibilidad en todo momento
+            function ensureVisibility() {
+                progressBar.style.opacity = "1"; 
+                progressBar.style.visibility = "visible";
+            }
+    
+            // Iniciar la barra de progreso al cargar
+            startProgress();
+            ensureVisibility();
+    
+            // Detectar cuando cambia el slide y reiniciar la barra
+            carousel.addEventListener("slid.bs.carousel", function () {
+                startProgress();
+                ensureVisibility();
             });
         });
     </script>
-
-
-<!-- Notificación de mensaje enviado con éxito -->
+    
+    <!-- Notificación de mensaje enviado con éxito -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const urlParams = new URLSearchParams(window.location.search);
@@ -422,17 +433,29 @@
 
             if (urlParams.has("success")) {
                 notification.classList.remove("d-none");
+
+                // Desplazar automáticamente a la sección "Contact Us"
+                const contactSection = document.getElementById("contact");
+                if (contactSection) {
+                    setTimeout(() => {
+                        window.scrollTo({ top: contactSection.offsetTop - 50, behavior: "smooth" });
+                    }, 500);
+                }
+
                 setTimeout(function () {
                     notification.classList.add("d-none");
-                }, 10000); // Oculta la notificación después de 5 segundos
+                }, 15000); // Notificación visible durante 15 segundos
             }
         });
     </script>
+
 
     <!-- Botón flotante para ir arriba -->
     <button id="scrollTopBtn" class="scroll-top">
         <i class="bi bi-chevron-up"></i>
     </button>
+
+    <!-- Botón scroll up -->
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -476,6 +499,9 @@
             });
         });
     </script>
+
+
+
 
     <!-- <script>
         document.addEventListener("DOMContentLoaded", function () {
